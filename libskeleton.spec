@@ -93,6 +93,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# headers expect subdir
+install -d $RPM_BUILD_ROOT%{_includedir}/skeleton
+%{__mv} $RPM_BUILD_ROOT%{_includedir}/*.h $RPM_BUILD_ROOT%{_includedir}/skeleton
+
 install -d $RPM_BUILD_ROOT%{_bindir}
 install examples/.libs/skeleton-* $RPM_BUILD_ROOT%{_bindir}
 
@@ -118,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libskeleton.so
-%{_includedir}/skeleton*.h
+%{_includedir}/skeleton
 %{_pkgconfigdir}/skeleton.pc
 
 %if %{with static_libs}
