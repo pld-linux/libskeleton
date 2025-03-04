@@ -12,6 +12,7 @@ Group:		Libraries
 #Source0Download: https://gitlab.xiph.org/xiph/libskeleton/-/tags
 Source0:	https://gitlab.xiph.org/xiph/libskeleton/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 # Source0-md5:	42ea2b16a1af330078f5f9b49ae1a50e
+Patch0:		%{name}-build.patch
 URL:		https://wiki.xiph.org/Ogg_Skeleton
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
@@ -76,6 +77,7 @@ Dokumentacja API biblioteki libskeleton.
 
 %prep
 %setup -q -n %{name}-v%{version}
+%patch -P0 -p1
 
 %build
 %{__libtoolize}

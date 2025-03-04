@@ -1,0 +1,11 @@
+--- libskeleton-v0.1.0/src/skeleton_vector.c.orig	2010-03-26 05:31:15.000000000 +0100
++++ libskeleton-v0.1.0/src/skeleton_vector.c	2025-03-03 22:06:35.709004834 +0100
+@@ -95,7 +95,7 @@ del_track_nfo (TrackVect *vect, ogg_int3
+     _ogg_free (t_nfo->index);
+   }  
+   
+-  return ;
++  return 0;
+ }
+ 
+ TrackVect* oggskel_vect_new ()
